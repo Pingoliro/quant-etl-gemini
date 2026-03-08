@@ -4,17 +4,12 @@ import requests
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# ==========================================
-# CONFIGURAÇÃO DE SEGURANÇA MLOPS
-# ==========================================
-# Carrega as variáveis do arquivo .env secretamente
 load_dotenv()
 CHAVE_API = os.getenv("GEMINI_API_KEY")
 
 if not CHAVE_API:
     raise ValueError("Chave de API não encontrada! Verifique o arquivo .env.")
 
-# Configura o Gemini
 genai.configure(api_key=CHAVE_API)
 modelo = genai.GenerativeModel('gemini-1.5-flash')
 
